@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Your Cart{% endblock title %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class='my-2 text-center'>Your Cart</h1>
+    <table class='table'>
+        <thead>
+            <tr>
+                <th scope='col'>Product</th>
+                <th scope='col'>Quantity</th>
+                <th scope='col'>Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in cart_items %}
+            <tr>
+                <td>{{ i.product.product_name }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>${{ i.total_price }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Total: ${{ total_price }}</h3>
+        <a href="#" class="btn btn-success">Checkout</a>
+    </div>
+</div>
+{% endblock %}
